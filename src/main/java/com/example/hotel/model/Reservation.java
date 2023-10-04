@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,15 +19,15 @@ public class Reservation {
     private Long room_id;
     private Long guest_id;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "room_id")
     @JsonBackReference
-    private Room room;
+    private List<Room> room;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "guest_id")
     @JsonBackReference
-    private Guest guest;
+    private List<Guest> guests;
 
 
 }

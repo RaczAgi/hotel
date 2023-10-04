@@ -27,9 +27,7 @@ public class Guest {
     private Long id_number;
     private String email;
 
-    @OneToMany(mappedBy = "reservation")
-    @JsonManagedReference
-    private Set<Guest> guests;
+
 
 
 }

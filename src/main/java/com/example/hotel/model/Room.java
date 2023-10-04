@@ -26,8 +26,6 @@ public class Room {
 
 
 
-    @OneToMany(mappedBy = "reservation")
-    @JsonManagedReference
-    private List<Room> rooms;
+
 
 }
