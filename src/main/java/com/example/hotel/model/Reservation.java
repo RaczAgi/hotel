@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -16,18 +18,23 @@ import java.util.Set;
 public class Reservation {
     @Id
     private Long id;
-    private Long room_id;
-    private Long guest_id;
 
-    @ManyToMany
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private Date start_date;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private Date end_date;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "room_id")
     @JsonBackReference
-    private List<Room> room;
+    private Room room;
 
-    @ManyToMany
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "guest_id")
     @JsonBackReference
-    private List<Guest> guests;
+    private Guest guest;
+
+
 
 
 }

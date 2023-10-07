@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+</head>
+<body>
+<form th:action="@{/add_guest}" method="post">
+    <label> Title:
+        <input th:field="*{newGuest.title}" placeholder="" type="text" id="title" title="title">
+    </label>
+    <br>
+    <label> Last name:
+        <input  th:field="*{newGuest.last_name}" placeholder="" type="text" id="last_name" title="last_name">
+    </label>
+    <br>
+    <label> First name:
+        <input  th:field="*{newGuest.first_name}" placeholder="" type="text" id="first_name" title="first_name">
+    </label>
+    <br>
+    <label> Birthplace:
+        <input  th:field="*{newGuest.birthplace}" placeholder="" type="text" id="birthplace" title="birthplace">
+    </label>
+    <br>
+    <label> Birthdate:
+        <input  th:field="*{newGuest.birthdate}" placeholder="" type="text" id="birthdate" title="birthdate">
+    </label>
+    <br>
+    <label> Identification Number:
+        <input  th:field="*{newGuest.id_number}" placeholder="" type="text" id="id_number" title="id_number">
+    </label>
+    <br>
+    <label> Email:
+        <input  th:field="*{newGuest.email}" placeholder="" type="text" id="email" title="email">
+    </label>
+    <br>
+    <label> Address:
+        <input  th:field="*{newGuest.address}" placeholder="" type="text" id="address" title="address">
+    </label>
+
+
+    <button type="submit">Submit</button>
+
+</form>
+</body>
+</html>

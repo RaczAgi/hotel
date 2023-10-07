@@ -1,10 +1,8 @@
 package com.example.hotel.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +23,9 @@ public class Room {
     private boolean sauna;
 
 
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Reservation> reservations;
 
 
 

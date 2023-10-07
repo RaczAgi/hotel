@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>Birthplace</th>
+        <th>Birthdate</th>
+        <th>ID number</th>
+        <th>Email</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tr th:each="guest : ${guests}">
+        <td th:text="${guest.getId()}"></td>
+        <td th:text="${guest.getTitle()}"></td>
+        <td th:text="${guest.getLast_name()}"></td>
+        <td th:text="${guest.getFirst_name()}"></td>
+        <td th:text="${guest.getBirthplace()}"></td>
+        <td th:text="${guest.getBirthdate()}"></td>
+        <td th:text="${guest.getId_number()}"></td>
+        <td th:text="${guest.getEmail()}"></td>
+        <td th:text="${guest.getAddress()}"></td>
+    </tr>
+</table>
+</body>
+</html>

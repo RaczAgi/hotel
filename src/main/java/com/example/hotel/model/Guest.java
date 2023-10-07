@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -23,9 +24,14 @@ public class Guest {
     private String last_name;
     private String first_name;
     private String birthplace;
-    private String birtdate;
+    private String birthdate;
     private Long id_number;
     private String email;
+    private String address;
+
+    @OneToMany(mappedBy = "guest", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Reservation> reservations = new ArrayList<>();
 
 
 
