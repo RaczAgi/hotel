@@ -40,7 +40,7 @@ public class HotelController {
         model.addAttribute("newGuest", new Guest());
         return "add_guest";}
     @PostMapping("/add_guest")
-    public String addBook(@ModelAttribute("newGuest") Guest newGuest) {
+    public String addGuest(@ModelAttribute("newGuest") Guest newGuest) {
         guestService.addGuest(newGuest);
         return "redirect:/guests";}
 
