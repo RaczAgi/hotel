@@ -2,10 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hotel</title>
     </head>
 <body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Guest id</th>
+        <th>Room id</th>
+        <th>Start date</th>
+        <th>End date</th>
 
+    </tr>
+    </thead>
+    <tr th:each="reservation : ${reservations}">
+        <td th:text="${reservation.getId()}"></td>
+        <td th:text="${reservation.guest_id()}"></td>
+        <td th:text="${reservation.guest_id()}"></td>
+        <td th:date="${reservation.start_date()()}"></td>
+        <td th:date="${reservation.end_date()()}"></td>
+
+    </tr>
+</table>
 
 </body>
 </html>

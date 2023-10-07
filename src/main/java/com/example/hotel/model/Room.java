@@ -16,6 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Room {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long capacity;
     private float price;

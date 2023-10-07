@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+</head>
+<body>
+<form th:action="@{/add_reservation}" method="post">
+    <label> Title:
+        <input th:field="*{reservation.start_date}" placeholder="" type="datetime-local" id="start_date" title="start_date">
+    </label>
+    <br>
+    <label> Last name:
+        <input  th:field="*{reservation.end_date}" placeholder="" type="datetime-local" id="end_date" title="end_date">
+    </label>
+    <br>
+    <label> First name:
+        <input  th:field="*{reservation.room_id}" placeholder="" type="number" id="room_id" title="room_id">
+    </label>
+    <br>
+    <label> Birthplace:
+        <input  th:field="*{reservation.guest_id}" placeholder="" type="number" id="guest_id" title="guest_id">
+    </label>
+    <br>
+
+    <button type="submit">Submit</button>
+
+</form>
+</body>
+</html>

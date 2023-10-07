@@ -9,10 +9,7 @@ import com.example.hotel.service.RoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,18 +20,22 @@ public class HotelController {
     private RoomService roomService;
     private ReservationService reservationService;
 
-    @GetMapping("/reservations")
-    public List<Reservation> getAllReservation() {
-        return reservationService.getAllReservation();
+    @GetMapping("/reservation")
+    public String getAllReservation(Model model) {
+        model.addAttribute("reservation", reservationService.getAllReservation());
+        return "reservation";
     }
-
 
     @GetMapping("/guests")
     public String listGuests(Model model){
         model.addAttribute("guests", guestService.getAllGuest());
         return "guests";
     }
-
+    @GetMapping("/rooms")
+    public String listRooms(Model model) {
+        model.addAttribute("rooms", roomService.getAllRoom());
+        return "rooms";
+    }
     @GetMapping("/add_guest")
     public String showGuestForm(Model model) {
         model.addAttribute("newGuest", new Guest());
@@ -44,17 +45,26 @@ public class HotelController {
         guestService.addGuest(newGuest);
         return "redirect:/guests";}
 
-/*
-    @GetMapping("/reservation")
-    public String showNewReservationForm(Model model){
-        model.addAttribute("newReservation", new Reservation());
-        return "reservation";
+    @GetMapping("/search_guest")
+    public String searchGuest(){
+        return "search_guest";
     }
-    @PostMapping("/reservation")
+
+    @PostMapping("/search_guest")
+    public String searchGuest(@RequestParam("id") Long id) {
+        guestService.searchGuest(id);
+        return "redirect:/guests";
+    }
+
+    @GetMapping("/add_reservation")
+    public String showReservationForm(Model model){
+        model.addAttribute("newReservation", new Reservation());
+        return "add_reservation";
+    }
+    @PostMapping("/add_reservation")
     public String addReservation(@ModelAttribute("newReservation") Reservation newReservation) {
         reservationService.addReservation(newReservation);
-        return "redirect:/guests";}
+        return "redirect:/reservation";}
 
-*/
 
 }

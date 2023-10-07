@@ -21,4 +21,9 @@ public class ReservationService {
     public Reservation addReservation(Reservation reservation) {
         return reservationRepo.save(reservation);
     }
+
+    private Reservation getReservationById(Long id) {
+        return reservationRepo.findById(id).orElse(null);
+    }
+
 }
